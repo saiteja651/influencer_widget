@@ -1,0 +1,31 @@
+<div class="container mt-5" style="width: 740px;margin-left: 180px;"
+    >
+    <h4 class="mx-2"><b>Suggested For you</b></h4>
+    <!-- Horizontal scroll container -->
+    <div class="scroll-container mb-5">
+        <!-- Cards -->
+        <div class="card bg-light m-2" *ngFor="let post of allSuggestions; let i = index">
+            <div>
+                <div class="card-header">
+                    <div class="d-flex justify-content-between">
+                        <h4>{{post.type}}</h4>
+                        <button (click)="removePost(i)" class="btn btn-sm">
+                            <i class="fa-solid fa-xmark fa-lg"></i> <!-- Trash icon wrapped inside a button -->
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <div class="card-body">
+                <img class="mx-3" [src]="post.image"  style="height: 140px;border-radius: 20px;width:225px "/>
+                <div class="container mt-2" style="width:240px;text-wrap: wrap;">
+                    <h6>{{post.title}}</h6>
+                </div>
+                <button class="btn">
+                    <i (click)="onInfoClicked(post)" class="fa-solid fa-circle-info fa-lg"></i>
+                </button>
+            </div>
+        </div>
+    </div>
+    
+</div>
+<app-suggestions-details *ngIf="infoClicked"  (closeDetailedView)="closeSuggestion()" [currentSuggestion]="currentSuggestion"></app-suggestions-details>

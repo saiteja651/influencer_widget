@@ -1,0 +1,58 @@
+.card{
+    /* height: 780px; */
+    width: 68%;
+    box-shadow: 0 8px 16px 0 rgba(0.1,0,0,0.1);
+    overflow-y: auto;
+    margin-top: 100px;
+    padding-bottom: 40px;
+}
+.present {
+    color: green;
+  }
+  
+  .missing {
+    color: red;
+  }
+  
+  /* Base styles for the input container */
+.input-container {
+    position: relative;
+    width: 300px;
+  }
+  
+  /* Base styles for the input field */
+  .input-container input {
+    width: 100%;
+    padding: 10px;
+    border: 2px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+    transition: border-color 0.3s ease;
+  }
+  
+  /* Styles for the input field when focused */
+  .input-container input:focus {
+    border-color: #007bff;
+  }
+  
+  /* Styles for the input field placeholder */
+  .input-container input::placeholder {
+    color: #aaa;
+  }
+  
+  /* Additional styles for the input field if needed */
+  /* For example, changing background color or text color */
+  
+.select-box select {
+  width: 100%;
+  padding: 10px;
+  border: 2px solid #ccc;
+  border-radius: 4px;
+  appearance: none;
+  background-repeat: no-repeat;
+  background-position: right 10px top 50%;
+  background-size: 16px auto;
+  cursor: pointer;
+  transition: border-color 0.3s ease;
+  outline: none;
+}

@@ -1,0 +1,18 @@
+<app-header></app-header>
+
+
+<div class="row" >
+        <app-sidebar *ngIf="true" class="col-3 overlay" ></app-sidebar>
+        <div class="col-9">
+<div style="margin-top:100px;margin-left: 200px;" >
+    <nav class="d-flex justify-content-around" >
+        <a [class.active]="activeLink === 'linkedin'"  style="color: white;"  (click)="onLinkedInClicked()" >LinkedIn</a>
+        <a [class.active]="activeLink === 'news'" style="color: white;" (click)="onNewsArticlesClicked()">News Article</a>
+        <a [class.active]="activeLink === 'custom-posts'" style="color: white;" (click)="onCustomPostsClicked()">Custom Posts </a>
+    </nav>
+    <app-linkedin *ngIf="isLinkedIn"></app-linkedin>
+    <app-news-article *ngIf="isNewsArticle"></app-news-article>
+    <app-custom-posts *ngIf="isCustomPosts"></app-custom-posts>
+</div>
+</div>
+</div> 

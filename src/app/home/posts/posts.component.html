@@ -1,0 +1,43 @@
+<div class="fixed-content" >
+    <div *ngFor="let post of allPosts;let i=index">
+    <div class="card mb-4" >
+        <div class="row">
+            <img class="col-1 mx-2 mt-3" height="40px" width="40px"
+                src="https://dbox.darwinbox.in/ms/vibe/assets/images/recognisation.svg" />
+            <h6 class=" col-9  mt-4"><b style="color:#0198FF;">{{post.recognized}}</b> has been recognized by <b
+                    style="color:#0198FF;">{{post.recognized_by}} </b>under the game changer program</h6>
+            <i class="col-1 mt-4 mx-3 fa-solid fa-ellipsis"></i>
+        </div>
+        <div class="row mt-3 mx-5" style="background-color: #f7f8fa; padding: 20px">
+            <div class="col-3">
+                <img height="80px" width="80px"
+                    src="https://darwinbox-data-prod-mum.s3.ap-south-1.amazonaws.com/INSTANCE1_56dd22c69ff1d_11/5fb54f5b03fff__5fb54f5b03cbe_badge.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAZ5N2TJ7HIBYPYWZ4%2F20240325%2Fap-south-1%2Fs3%2Faws4_request&X-Amz-Date=20240325T042837Z&X-Amz-Expires=300&X-Amz-Signature=f33295e7ecbc3269960eb16337773af309d711c7494c275d6c7fc7e47600e213&X-Amz-SignedHeaders=host" />
+            </div>
+            <div class="col-8">
+               
+                    <b>Citation</b>
+                    <p>
+                        
+                            Thank you for your commitment for the client and deliverables.
+
+                    Appreciated...!
+
+                        
+                    
+                </p>
+            </div>
+        </div>
+        <div class="my-4" style="border: 1px solid #f7f8fa;"></div>
+        <div class="mx-4">
+
+            <i class="fa-regular fa-heart mx-2"></i> 1like
+            <i class="fa-regular fa-comment mx-2"></i> 0 comments
+            <i class="fa-solid fa-share-nodes mx-2"></i>Share
+        </div>
+       
+    </div>
+    <div *ngIf="(i+1)%2===0">
+        <app-suggestions (toParentInfoClicked)="toParentInfoClicked()"></app-suggestions>
+    </div>
+</div>
+</div>

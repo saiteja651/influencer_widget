@@ -1,0 +1,94 @@
+.header{
+    background-color:#0183ff;
+    height: 70px;
+    width: 100vw;
+    position: fixed;
+    
+/* 
+    padding: 25px 0px; */
+}
+.input{
+  background-color:  #0198ff;
+    height: 40px;
+    border: none;
+    padding-top: 10px;
+    width: 400px;
+}
+input {
+     /* Set initial border color */
+    transition: border-color 0.3s ease; /* Add transition for smooth effect */
+    border-radius: 10px;
+}
+input:focus{
+    background-color: white;
+}
+input::placeholder{
+    color:black;
+    margin-left: 5px;
+    padding-left: 5px;
+}
+
+.btn{
+    height: 50px;
+}
+
+/* Style the dropdown button */
+
+
+.dropbtn {
+    background-color:#0183ff;
+    color: white;
+    border: none;
+    cursor: pointer;
+  }
+  
+  /* Style the dropdown content (hidden by default) */
+  .dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    /* min-width: 110px; */
+    width: 135px;
+    height: 100px;
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+    z-index: 1;
+    padding-left: 10px;
+  }
+  
+  /* Style links inside the dropdown */
+  .dropdown-content a {
+    color: black;
+    padding: 10px 16px;
+
+    text-decoration: none;
+    display: block;
+  }
+  
+  /* Change color of dropdown links on hover */
+  .dropdown-content a:hover {
+    background-color: #f1f1f1;
+  }
+  
+  /* Show the dropdown menu on hover */
+  .dropdown:hover .dropdown-content {
+    display: block;
+  }
+  #message {
+    margin-top: -0.5em;
+    color: #757575;
+    letter-spacing: 1px;
+}
+h6#myButton {
+  cursor: pointer;
+  padding: 8px 16px;
+  /* background-color: #007bff; */
+  /* color: white; */
+  border: none;
+  border-radius: 4px;
+  text-align: center;
+  display: inline-block;
+}
+.hel:hover {
+  width: 135px;
+  background-color:#f1f1f1; /* darker shade of blue */
+}

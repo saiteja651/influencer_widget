@@ -1,0 +1,8 @@
+<app-header></app-header>
+
+
+<div class="row" >
+        <app-sidebar *ngIf="true" class="col-3 overlay" (isAdminConfigClicked)="setAdminConfig()"></app-sidebar>
+        <app-posts class="col-9" *ngIf="true"></app-posts>
+        <app-admin class="col-9" *ngIf="false"></app-admin>
+</div> 

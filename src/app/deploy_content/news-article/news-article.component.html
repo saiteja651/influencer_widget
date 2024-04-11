@@ -1,0 +1,163 @@
+
+   <!-- <div class="mt-4">
+    <div class="card">
+      <div style="margin: 5px;padding: 10px;">
+        <div class="d-flex">
+          <img width="50px" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSmwBG43-BcCnFgD_GpU0UwW9qYiPB4iA8YrQ&usqp=CAU" />
+          <h2 class="mx-2">News Article</h2>
+          
+        </div>
+        
+      </div>
+      <div style="border: 1px solid black;"></div>
+      <div class="card-body ">
+      
+        <div *ngIf="isLoader" style="margin-left: 120px;margin-top: 200px;">
+            <app-loader ></app-loader>  
+        </div>
+        <div *ngIf="showBlueTick" style="margin-left: 250px; margin-top: 200px;">
+          <img  width="150px" src="https://www.vhv.rs/dpng/d/131-1312764_blue-tick-in-circle-hd-png-download.png"/>
+          <h3 >Deployed Succesfully</h3>
+        </div>
+      
+         <div *ngIf="allPosts?.length>0&&!isLoader">
+         <div class="post_card" *ngFor="let post of allPosts; let i = index" [hidden]="selectedIndex !== i">
+          <div class="image-container">
+            <img [src]="post.image" alt="Post Image">
+            <button (click)="removePost(i)" class="wrong-button" style="width: 40px;">
+             
+              <i class="fa-solid fa-circle-xmark"></i>
+            </button>
+          </div>
+          <div class="content">
+            <h5>{{post.title}}</h5>
+            <p class="mt-3">
+              <p *ngIf="!expanded">{{ post.description | slice:0:100}}</p>
+              <div *ngIf="post.description?.length>100&&!expanded">
+                <a (click)="toggle()" style="color: #0198FF;cursor: pointer;">Read More</a>
+              </div>
+              <div *ngIf="expanded">
+                {{post.description}}
+                <a (click)="toggle()"  style="color: #0198FF;cursor: pointer;">Read Less</a>
+              </div>
+            
+          </div>
+        </div>
+        
+        <div>
+     
+        <div *ngIf="allPosts&&(allPosts?.length>0)"  class="navigation-buttons" style="margin-top: 20px;">
+          <button  *ngIf="!isFirstPost()&&!isLastPost()" class="btn btn-primary" style="margin-right:500px;" (click)="previousPost()"[disabled]="isFirstPost()">&lt;</button>
+          <button *ngIf="!isLastPost()&&!isFirstPost()" class="btn btn-primary" style="margin-right: 30px;" (click)="nextPost()" [disabled]="isLastPost()">&gt;</button>
+          <button *ngIf="isFirstPost()&&!isLastPost()" class="btn btn-primary" style="margin-left: 520px;" (click)="nextPost()" [disabled]="isLastPost()">&gt;</button>
+          <button  *ngIf="isLastPost()&&!isFirstPost()" class="btn btn-primary" style="margin-right:570px;" (click)="previousPost()"[disabled]="isFirstPost()">&lt;</button>
+          </div>
+        </div>
+        <div *ngIf="allPosts&&!(allPosts?.length>0)"   style="margin-top: 200px;margin-left: 40px;">
+            <h2>No posts were on the given prameters</h2>
+        </div>
+        <div class="d-flex button-container" *ngIf="allPosts&&(allPosts?.length>0)" >
+          <button class="fetch-btn mx-1" (click)="fetchNewArticles()">Fetch</button>
+          <button class="deploy-all-btn mx-1" (click)="deployAllArticles()">Deploy All</button>
+          <div class="select-box mx-1" style="width: 370px;">
+            <b><Span class="mx-2">Expiry Days</Span></b>
+            <select class="form-select" [(ngModel)]="expiryDays">
+              <option value="1">1 &nbsp;day</option>
+              <option value="2">2 &nbsp;days</option>
+              <option value="3">3 &nbsp;days</option>
+              <option value="4">4 &nbsp;days</option>
+            </select>
+          </div>
+        
+        
+        </div>
+      </div>
+    </div>
+  </div>
+   -->
+
+   <div class="mt-4">
+    <div class="card">
+      <div style="margin: 5px;padding: 10px;">
+        <div class="d-flex">
+          <img width="50px" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSmwBG43-BcCnFgD_GpU0UwW9qYiPB4iA8YrQ&usqp=CAU" />
+          <h2 class="mx-2">News Article</h2>
+          
+        </div>
+        
+      </div>
+      <div style="border: 1px solid black;"></div>
+      <div class="card-body ">
+
+        <div *ngIf="isLoader" style="margin-left: 120px;margin-top: 200px;">
+            <app-loader ></app-loader>  
+        </div>
+        <div *ngIf="allPosts?.length>0&&!isLoader">
+          <div *ngIf="setBackClick">
+            <button (click)="onBackClick()" ><i class="fa-solid fa-arrow-left fa-lg"></i></button>
+          </div>
+         <div class="post_card" *ngFor="let post of allPosts; let i = index" [hidden]="selectedIndex !== i">
+          <div class="image-container">
+            <img [src]="post.image" alt="Post Image">
+          
+          </div>
+          <div class="content">
+            <h6>{{post.title}}</h6>
+              <div *ngIf="!expanded">
+                {{ post.description | slice:0:50}} <a *ngIf="post.description?.length>50&&!expanded" (click)="toggle()" style="color: #0198FF;cursor: pointer;">Read More</a>
+              </div>
+              <div *ngIf="expanded">
+                {{post.description}}
+                <a (click)="toggle()"  style="color: #0198FF;cursor: pointer;">Read Less</a>
+              </div>
+              <div class="d-flex">
+                <button class="delete-post mx-1" (click)="removePost(i)">Remove</button>
+                <button class="deploy-all-btn mx-1" (click)="deployPost(post)">Deploy</button>
+                <div class="select-box mx-1" style="width: 170px;">
+                  <b><Span class="mx-2">Expiry Days</Span></b>
+                  <select class="form-select" [(ngModel)]="expiryDays">
+                    <option value="1">1 &nbsp;day</option>
+                    <option value="2">2 &nbsp;days</option>
+                    <option value="3">3 &nbsp;days</option>
+                    <option value="4">4 &nbsp;days</option>
+                  </select>
+                </div>
+              </div>
+             
+            
+          </div>
+        </div>
+        
+        <div>
+     
+        <div  class="navigation-buttons">
+          
+           
+            
+            <button  *ngIf="!isFirstPost()&&!isLastPost()" class="btn btn-primary" style="margin-right:500px;" (click)="previousPost()"[disabled]="isFirstPost()">&lt;</button>
+            <button *ngIf="!isLastPost()&&!isFirstPost()" class="btn btn-primary" style="margin-right: 30px;" (click)="nextPost()" [disabled]="isLastPost()">&gt;</button>
+            <button *ngIf="isFirstPost()&&!isLastPost()" class="btn btn-primary" style="margin-left: 520px;" (click)="nextPost()" [disabled]="isLastPost()">&gt;</button>
+            <button  *ngIf="isLastPost()&&!isFirstPost()" class="btn btn-primary" style="margin-right:570px;" (click)="previousPost()"[disabled]="isFirstPost()">&lt;</button>
+           
+          </div>
+        </div>
+        
+        <div class="d-flex button-container">
+          <button class="fetch-btn mx-1" (click)="fetchNewArticles()">Fetch All Posts</button>
+          
+        
+          
+        </div>
+        </div>
+        
+      </div>
+      <div *ngIf="allPosts&&!(allPosts?.length>0)&&!isLoader"   class="no-posts">
+        <h3>No posts were on the given prameters</h3>
+        <div class="d-flex button-container">
+          <button style="margin-right: 270px !important;" class="fetch-btn mx-1" (click)="fetchNewArticles()">Fetch All Posts</button>
+        </div>
+    </div>
+    </div>
+   
+  </div>
+  

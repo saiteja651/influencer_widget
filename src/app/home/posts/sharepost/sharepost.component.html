@@ -1,0 +1,51 @@
+<div>
+
+<form [formGroup]="reactiveForm " class="mt-4 form" (ngSubmit)="onSubmit()">
+    <button (click)="onBackClick()" class="btn mt-0"><i class="fa-solid fa-arrow-left fa-lg"></i></button>
+    <div class="d-flex">
+      <div class="input-box">
+        <label>Description</label>
+        <textarea *ngIf="!isNewDescription" type="text-area" required formControlName="text"></textarea>
+        <textarea *ngIf="isNewDescription" formControlName="text">{{newDescription}}</textarea>
+        <small *ngIf="reactiveForm.get('text').invalid">*Descripion is Mandtory</small>
+      </div>
+      <div style="margin-top: 80px; margin-left: 20px;">
+        <button type="button" class="btn btn-success" (click)="onGenerate(currentPost)">Generate</button>
+      </div>
+    </div>
+   
+      <label class="mt-2">Type of Post</label>
+      <div class="select-box">
+        <select formControlName="visibility">
+          <option hidden>Priority</option>
+          <option value="PUBLIC">Public</option>
+          <option value="CONNECTIONS">Connections</option>
+        </select>
+      </div>
+      <!-- <div class="input-box">
+        <label>Post Link</label>
+        <input class="myinput" type="text" required formControlName="link" readonly/>
+        <small *ngIf="(reactiveForm.get('link').invalid && reactiveForm.get('link').touched)
+        ">*Link is mandatory</small>
+      </div> -->
+      <br/> 
+      <div style="border: 1px solid black;"></div>
+      
+      <img [src]="currentPost.image" style="height: 200px; border-radius: 20px; margin-top: 30px;" class="mx-auto"/>
+      <div style="margin-top: 20px;"></div>
+      <ng-container *ngIf="!expanded && currentPost.description?.length > 200; else expandedContent">
+                    
+        {{ currentPost.description | slice:0:100}}
+        <a style="color: #0198FF;"><button (click)="toggle()" >Read More</button></a>
+      </ng-container>
+      <ng-template #expandedContent>
+      
+         {{ currentPost.description}}
+        <a style="color: #0198FF;" *ngIf="currentPost.description?.length > 200"><button (click)="toggle()" >Read Less</button></a>
+      </ng-template>
+      <button class="share" type="submit" [disabled]="
+      reactiveForm.get('link').invalid||reactiveForm.get('text').invalid
+      " *ngIf="isLinkedInLoggedin">Share</button>
+      <button *ngIf="!isLinkedInLoggedin" type="button" class="share" (click)="loginWithLinkedin()">Login With Linkedin</button>
+</form>
+</div>

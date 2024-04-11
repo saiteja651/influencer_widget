@@ -1,0 +1,73 @@
+<app-header></app-header>
+
+
+<div class="row">
+    <app-sidebar *ngIf="true" class="col-3 overlay"></app-sidebar>
+    <div class="col-9">
+        <div style="margin-top:150px;margin-left: 200px;">  
+            <div class="card">
+                <div class="d-flex mx-3 my-3">
+                    <img style="height: 60px;" src="data:image/png;base64,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">
+                    <h4 class="mt-3  mx-2">Admin</h4>
+                </div>
+                <div style="border: 1px solid black;"></div>
+                <div style="margin-top: 50px;margin-left: 50px;">
+                    <h5>
+                        LinkedInAdmin Token&nbsp; :&nbsp;&nbsp;
+                        <span [style.color]="isOAuthToken ? 'green' : 'red'">
+                          {{ isOAuthToken ? 'present' : 'missing' }}
+                        </span>
+                      </h5>
+                    <div class="mt-3 d-flex" *ngIf="!isOAuthToken">
+                        <h5 class="mt-2">Send Mail to  Admin&nbsp; :&nbsp; &nbsp;</h5>
+                        <div class="input-container">
+                            <input [(ngModel)]="adminEmail" type="text" id="username" placeholder="Enter admin email">
+                            <b *ngIf="!adminEmail&&buttonClick"><small style="color: red;">*Email is Mandatory</small></b>
+                          </div>
+                        <button  (click)="onAdminEmailClick()"  class="btn  mx-4" style="width: 100px; background-color: #0183FF;color: whitesmoke;height: 50px;">Send</button>
+                    </div>
+                    <div *ngIf="isOAuthToken">
+                        <div class="mt-3 d-flex">
+                            <h5 class="mt-3">Organization &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;&nbsp;</h5>
+                            <div class="input-container" style="width: 365px;">
+                                <input [(ngModel)]="companyName" type="text" id="companyName" placeholder="Enter Oganization Link">
+                                <b *ngIf="!companyName&&isOrganizationButtonClick"><small style="color: red;">*Organization is Mandatory</small></b>
+                              </div>
+                            <button (click)="onOrganizationUrlClick()" class="btn mx-2" style="width: 100px; background-color: #0183FF;color: whitesmoke;height: 50px;">Send</button>
+                        </div>
+                        <div class="mt-3 d-flex">
+                            <h5 class="mt-2">Keywords <span style="margin-left: 113px;"></span>:&nbsp;&nbsp;</h5>
+                            <div class="input-container mr-1" style="width: 120px;">
+                                <input [(ngModel)]="keyword1" type="text" id="keyword1" placeholder="keyword1">
+                                <b *ngIf="isKeywordButtonClick&&!keyword1"><small style="color: red;">*Keyword1 is Mandatory</small></b>
+                              </div>
+                              <div class="input-container mr-1" style="width: 120px;">
+                                <input [(ngModel)]="keyword2" type="text" id="keyword2" placeholder="keyword2">
+                              </div>
+                              <div class="input-container" style="width: 120px;">
+                                <input [(ngModel)]="keyword3" type="text" id="keyword3" placeholder="keyword3">
+                              </div>
+                              <button (click)="onKeywordClick()" class="btn mx-2" style="width: 100px; background-color: #0183FF;color: whitesmoke;height: 50px;">Send</button>
+                        
+                        </div>
+                        <div class="mt-3 d-flex">
+                            <h5 class="mt-2">Select Country <span style="margin-left: 67px;">:&nbsp;&nbsp;</span></h5>
+                            
+                            <div class="select-box" style="width: 370px;">
+                                <select class="form-select" [(ngModel)]="countryCode">
+                                  <option hidden>Allow Repeat</option>
+                                  <option value="IN">IN &nbsp;(India)</option>
+                                  <option value="US">US &nbsp;(USA)</option>
+                                  <option value="IN">SG &nbsp;(Singapore)</option>
+                                  <option value="US">ID &nbsp;(Indonesia)</option>
+                                </select>
+                              </div>
+                              <button (click)="onCountryCodeClick()" class="btn mx-2" style="width: 100px; background-color: #0183FF;color: whitesmoke;height: 50px;">Send</button>
+                            
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

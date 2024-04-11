@@ -1,0 +1,44 @@
+<app-header></app-header>
+
+
+<div class="row" >
+        <app-sidebar *ngIf="true" class="col-3 overlay" ></app-sidebar>
+        <div class="col-9">
+            <div style="margin-top: 90px; margin-right: 110px;">
+                <h4 class="mb-3">Shared history</h4>
+                <div style="border: 1px solid black;"></div>
+                <div *ngIf="isLoader" style="margin-left: 400px;margin-top:200px;">
+                    <app-loader></app-loader>
+                  </div>
+            
+                  <div *ngIf="!isLoader" class="table-container mt-4 " style="margin-right:90px">
+                    <div class="table-container">
+                        <table class="interactive-table">
+                          <thead>
+                            <tr>
+                              <th>Date</th>
+                              <th>Visibility</th>
+                              <th>Text</th>
+                              <th>Type</th>
+                              <th>View</th>
+                              <th>Link</th>
+                            </tr>
+                          </thead>
+                          <tbody>
+                            <tr *ngFor="let post of allPosts">
+                              <td>{{ post.date | date }}</td>
+                              <td>{{ post.visibility }}</td>
+                              <td style="width: 250px !important;">{{ post.text }}</td>
+                              <td>{{ post.type }}</td>
+                             
+                              <td><a href="{{ post.view }}" target="_blank">{{ post.view }}</a></td>
+                              <td><a href="{{ post.link }}" target="_blank">Link</a></td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      
+                  </div>
+            </div>
+        </div>
+</div>

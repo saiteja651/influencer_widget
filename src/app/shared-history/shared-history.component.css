@@ -1,0 +1,51 @@
+/* Table Container Styles */
+.table-container {
+  width: 100%;
+  overflow-x: auto;
+}
+
+/* Table Styles */
+.interactive-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.interactive-table th, .interactive-table td {
+  padding: 15px;
+  text-align: left;
+  border-bottom: 1px solid #ddd;
+}
+
+.interactive-table th {
+  background-color: #f8f9fa;
+  font-weight: bold;
+  color: #333;
+  cursor: pointer;
+}
+
+.interactive-table th:hover {
+  background-color: #e9ecef;
+}
+
+.interactive-table tbody tr:hover {
+  background-color: rgba(0, 0, 0, 0.05);
+}
+
+/* Adjust width of the Text column */
+.interactive-table tbody tr td:nth-child(5) {
+  width: 350px; /* Adjust as needed */
+}
+
+.interactive-table tbody tr td img {
+  max-width: 100px;
+  height: auto;
+}
+
+.interactive-table tbody tr td a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+.interactive-table tbody tr td a:hover {
+  color: #0056b3;
+}

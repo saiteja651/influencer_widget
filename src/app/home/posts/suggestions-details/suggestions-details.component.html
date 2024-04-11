@@ -1,0 +1,36 @@
+
+<div class="overlay">
+	<div class="popup" >
+    <div style="background-color: #0183FF;">
+        <h5  style="padding-top: 10px;color: whitesmoke;width: 90%;margin-left: 10px;">{{currentSuggestion.title}}</h5>
+        <hr>
+		<button class="close btn mx-3" style="color: whitesmoke;" href="#" (click)="onClose()">&times;</button>
+  </div>
+		<div class="content">
+			<section class="container mt-3">
+                <ng-container *ngIf="!share;else sharenow">
+                <h3>Description</h3>
+                <img  class="mx-auto" [src]="currentSuggestion.image" style="height: 250px;border-radius: 20px;">
+                <p class="mt-3">
+                  <ng-container *ngIf="!expanded && currentSuggestion.description?.length > 200; else expandedContent">
+                    
+                    {{ currentSuggestion.description | slice:0:100}}
+                    <a style="color: #0198FF;"><button (click)="toggle()" >Read More</button></a>
+                  </ng-container>
+                  <ng-template #expandedContent>
+                  
+                     {{ currentSuggestion.description}}
+                    <a style="color: #0198FF;" *ngIf="currentSuggestion.description?.length > 200"><button (click)="toggle()" >Read Less</button></a>
+                  </ng-template>
+                </p>
+                <button class="btn btn-primary" (click)="onShare()">Share Now</button>
+              </ng-container>
+              
+              <ng-template #sharenow>
+                <app-sharepost [currentPost]="currentSuggestion" (backClick)="onBackClick()" (onCloseDetailedView)="onClose()"></app-sharepost>
+              </ng-template>
+            </section>
+           
+		</div>
+	</div>
+</div>

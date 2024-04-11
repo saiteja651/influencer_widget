@@ -1,0 +1,39 @@
+nav {
+  background-color: #333;
+  height: 70px;
+  width: 60%;
+  align-items: center;
+  gap: 8px 30px;
+}
+
+a {
+  color: #a0a0a0;
+  text-decoration: none;
+  padding: 0 20px;
+  letter-spacing: 0.5px;
+  position: relative;
+  transition: 0.2s;
+  cursor: pointer;
+}
+
+a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -5px;
+  width: 0;
+  height: 2px;
+  background-color: transparent;
+  transition: width 0.5s ease-in-out;
+}
+
+a:hover {
+  color: #fff;
+}
+
+
+.active::after {
+  width: 100%;
+  background-color:#0198ff;
+
+}
